@@ -10,6 +10,18 @@ type ContaUsuario struct {
 	saldo   float64
 }
 
+//Criando método para sacar dinheiro:
+func (conta *ContaUsuario) sacar(valor float64) string {
+	autorizadoASacar := valor <= conta.saldo
+	if autorizadoASacar {
+		conta.saldo -= valor
+		return "Saldo sacado com sucesso"
+	} else {
+		return ("Algo deu errado, verifique seu saldo")
+	}
+
+}
+
 func main() {
 	//Criando o primeiro titular:
 	gabriel := ContaUsuario{
@@ -24,5 +36,7 @@ func main() {
 		2,
 		6272.87,
 	}
-	fmt.Println(gabriel, ana)
+
+	fmt.Println(ana.sacar(2000.34))
+	fmt.Println(gabriel.sacar(2000.34))
 }
