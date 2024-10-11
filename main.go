@@ -12,7 +12,7 @@ type ContaUsuario struct {
 
 //Criando método para sacar dinheiro:
 func (conta *ContaUsuario) sacar(valor float64) string {
-	autorizadoASacar := valor <= conta.saldo
+	autorizadoASacar := valor <= conta.saldo && valor > 0
 	if autorizadoASacar {
 		conta.saldo -= valor
 		return "Saldo sacado com sucesso"
@@ -37,17 +37,13 @@ func main() {
 		6272.87,
 	}
 
-	fmt.Println(ana.sacar(2000.34))
-	fmt.Println(gabriel.sacar(2000.34))
-	fmt.Println(gabriel.Depositar(345.2))
+	fmt.Println(ana)
+	gabriel.Depositar(7000)
+	fmt.Println(gabriel)
 }
 
-func (conta *ContaUsuario) Depositar(valor float64) string {
-	autorizarDepostio := valor <= conta.saldo
-	if autorizarDepostio {
-		valor += conta.saldo
-		return "Deposito efetuado com sucesso!"
-	} else {
-		return "Deposito não autorizado"
-	}
+func (conta *ContaUsuario) Depositar(valor float64) {
+	conta.saldo += valor
+	fmt.Println(conta.saldo)
+
 }
