@@ -39,4 +39,15 @@ func main() {
 
 	fmt.Println(ana.sacar(2000.34))
 	fmt.Println(gabriel.sacar(2000.34))
+	fmt.Println(gabriel.Depositar(345.2))
+}
+
+func (conta *ContaUsuario) Depositar(valor float64) string {
+	autorizarDepostio := valor <= conta.saldo
+	if autorizarDepostio {
+		valor += conta.saldo
+		return "Deposito efetuado com sucesso!"
+	} else {
+		return "Deposito não autorizado"
+	}
 }
