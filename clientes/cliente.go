@@ -2,7 +2,7 @@ package clientes
 
 type Cliente struct {
 	Nome     string
-	Cpf      int
+	Cpf      string
 	Idade    int
 	Solteiro bool
 }
