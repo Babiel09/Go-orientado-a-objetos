@@ -6,10 +6,9 @@ import (
 )
 
 type ContaUsuario struct {
-	Titular clientes.Cliente
-	Agencia int
-	Conta   int
-	saldo   float64 //O saldo ficara privado para o usuário não o alterar
+	Titular        clientes.Cliente
+	Agencia, Conta int
+	saldo          float64 //O saldo ficara privado para o usuário não o alterar
 }
 
 func (conta *ContaUsuario) Sacar(valor float64) string {
